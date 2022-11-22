@@ -89,7 +89,7 @@ public class Flower {
         }else {
             this.cost = 1;
         }
-        if (lifeSpan != 0 || lifeSpan > 0){
+        if (lifeSpan > 0){
             this.lifeSpan = lifeSpan;
         }else {
             this.lifeSpan = 3;

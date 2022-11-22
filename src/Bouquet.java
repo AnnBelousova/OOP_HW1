@@ -2,7 +2,8 @@ import java.util.Arrays;
 
 public class Bouquet {
     double price = 0;
-    public Flower[] addFlowerToBouquet(Flower flower, Flower[] flowers, int count){
+    Flower[] flowers = new Flower[0];
+    /*public Flower[] addFlowerToBouquet(Flower flower, Flower[] flowers, int count){
         Flower[] bouquet;
         if (count == 1){
             bouquet = Arrays.copyOf(flowers,flowers.length+1);
@@ -15,6 +16,16 @@ public class Bouquet {
             }
         }
         return bouquet;
+    }*/
+
+
+    public void addFlowerToBouquet(Flower flower, int count) {
+        int length = flowers.length;
+        flowers = Arrays.copyOf(flowers, flowers.length + count);
+        flowers[length] = flower;
+        for (int i = 0; i < count - 1; i++) {
+            flowers[length + i + 1] = flowers[length + i];
+        }
     }
     private double calculatePrice(Flower[] bouquet){
         for (int i = 0; i < bouquet.length; i++) {
@@ -35,7 +46,7 @@ public class Bouquet {
         return minLifeSpan;
     }
 
-    public void printBouquet(Flower[] flowers){
+    public void printBouquet(){
         int k=0;
         for (int i = 0; i < flowers.length; i++) {
             for (int j = i+1; j < flowers.length ; j++) {
